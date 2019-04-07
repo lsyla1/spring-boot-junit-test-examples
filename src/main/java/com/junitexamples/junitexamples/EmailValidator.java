@@ -18,13 +18,15 @@ public class EmailValidator {
 	
 	public ArrayList removeInvalidEMails(ArrayList<String> emailList) {
 		
+		ArrayList<String> listToReturn = new ArrayList<String>();
+		
 		for(String email : emailList) {
-			if(!this.isEmailValid(email)) {
-				emailList.remove(email);
+			if(this.isEmailValid(email)) {
+				listToReturn.add(email);
 			}
 		}
 		
-		return emailList;
+		return listToReturn;
 		
 	}
 	
