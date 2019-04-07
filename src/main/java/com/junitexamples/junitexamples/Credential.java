@@ -3,9 +3,9 @@ package com.junitexamples;
 import java.util.ArrayList;
 
 import java.util.regex.Matcher; 
-import java.util.regex.Pattern; 
+import java.util.regex.Pattern;
 
-public class EmailValidator {
+public class Credential {
 
 	String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+ 
             "[a-zA-Z0-9_+&*-]+)*@" + 
