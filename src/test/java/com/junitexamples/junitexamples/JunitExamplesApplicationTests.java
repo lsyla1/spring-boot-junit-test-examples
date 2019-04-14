@@ -8,6 +8,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import com.junitexamples.Credential;
+import com.junitexamples.Vector;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -46,12 +47,8 @@ public class JunitExamplesApplicationTests {
 			/*
 			 * Vector multiplication:
 			 */
-			int[][] multiplication = new int[firstVector.length][secondVector.length];
-			for(int i = 0; i < firstVector.length; i++) {
-			    for(int j = 0; j < secondVector.length; j++){
-			    	multiplication[i][j] = firstVector[i] * secondVector[j];
-			    }
-			}
+			Vector vector = new Vector();
+				int[][] multiplication = vector.multiplication(firstVector, secondVector);	
 			
 			int[][] resultExpectation = {{4, 5, 6}, {8, 10, 12}, {12, 15, 18}};
 			
