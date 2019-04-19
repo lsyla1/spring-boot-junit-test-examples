@@ -18,6 +18,28 @@ public class Vector {
 		
 	}
 	
+	public int[] fibonacci(int arrayLength) {
+		
+		int previousNumber = 0;
+		int nextNumber = 1;
+		
+		int[] fibonacciArray = new int[arrayLength];
+		
+		for (int i = 0; i < arrayLength; ++i)
+        {
+
+            int sum = previousNumber + nextNumber;
+            previousNumber = nextNumber;
+            nextNumber = sum;
+            
+            fibonacciArray[i] = sum;
+            
+        }
+		
+		return fibonacciArray;
+		
+	}
+	
 	public static void main(String args[]){
 		
 	}

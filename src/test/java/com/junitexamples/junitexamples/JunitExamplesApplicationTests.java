@@ -6,6 +6,8 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.stream.IntStream;
+
 import java.util.ArrayList;
 import com.junitexamples.Credential;
 import com.junitexamples.Vector;
@@ -55,6 +57,34 @@ public class JunitExamplesApplicationTests {
 			assertArrayEquals(multiplication,resultExpectation);
 			
 		
+	}
+	
+	@Test
+	public void assertTrueForFibonacciResults() {
+		
+		Vector vector = new Vector();
+			int[] fibonacciSeries = vector.fibonacci(10);
+
+			// Is 34 among first 10 fibonacci numbers?
+			boolean contains = IntStream.of(fibonacciSeries).anyMatch(x -> x == 34);
+
+			
+			assertTrue(contains);
+			
+	}
+	
+	@Test
+	public void assertFalseForFibonacciResults() {
+		
+		Vector vector = new Vector();
+			int[] fibonacciSeries = vector.fibonacci(20);
+
+			// Is 2353 among first 20 fibonacci numbers?
+			boolean contains = IntStream.of(fibonacciSeries).anyMatch(x -> x == 2353);
+
+			
+			assertFalse(contains);
+			
 	}
 
 }
