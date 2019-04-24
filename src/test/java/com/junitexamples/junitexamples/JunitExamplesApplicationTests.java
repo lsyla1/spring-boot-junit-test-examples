@@ -2,15 +2,21 @@ package com.junitexamples.junitexamples;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
+import static org.junit.Assume.*;
+
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.stream.IntStream;
 
+import java.time.YearMonth;
+
+
 import java.util.ArrayList;
 import com.junitexamples.Credential;
 import com.junitexamples.Vector;
+import com.junitexamples.Account;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -86,5 +92,40 @@ public class JunitExamplesApplicationTests {
 			assertFalse(contains);
 			
 	}
+	
+	@Test
+	public void assertAccountObjectIsNotNull() {
+		
+		Account accountObj = new Account();
+				accountObj.firstName = "John";
+				accountObj.lastName  = "Doe";
+				accountObj.email     = "john@doe.com";
+		
+			assertNotNull(accountObj);
+		
+	}
 
+	@Test
+	public void assertAccountObjectsAreNotSame() {
+		
+		Account accountObj1 = new Account();
+		Account accountObj2 = new Account();
+		
+			assertNotSame(accountObj1, accountObj2);
+		
+	}
+	
+	@Test
+	public void assumeTestRunsThisCentury() {
+		
+		int year = YearMonth.now().getYear();
+		
+		boolean areWeStillOn21stCentury = (year < 2100);
+		
+		assumeTrue(areWeStillOn21stCentury);
+		
+		// So if this tests run after 2100, this assumption will halt the remaining tests.
+		
+	}
+	
 }
