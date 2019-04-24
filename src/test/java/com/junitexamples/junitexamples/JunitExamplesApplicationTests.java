@@ -9,9 +9,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.stream.IntStream;
+import java.io.FileReader;
+import java.io.IOException;
 
 import java.time.YearMonth;
-
 
 import java.util.ArrayList;
 import com.junitexamples.Credential;
@@ -126,6 +127,15 @@ public class JunitExamplesApplicationTests {
 		
 		// So if this tests run after 2100, this assumption will halt the remaining tests.
 		
+	}
+	
+	@Test(expected = IOException.class)
+	public void expectIOExceptionForNonExistingFile() throws IOException {
+
+			FileReader reader = new FileReader("/path/to/file/which/doesnt.exist");
+		        reader.read();
+		        reader.close();
+
 	}
 	
 }
