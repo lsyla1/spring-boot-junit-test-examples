@@ -21,11 +21,7 @@ import com.junitexamples.Account;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class JunitExamplesApplicationTests {
-
-	@Test
-	public void contextLoads() {
-	}
+public class JunitAssertAssumeTests {
 	
 	@Test
 	public void compareAfterFilteringInvalidEmails() throws Exception {
